@@ -1,1 +1,1 @@
-# Rock_Paper_Sscissors-App
+# Rock_Paper_Scissors-App
