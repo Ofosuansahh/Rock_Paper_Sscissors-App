@@ -66,23 +66,34 @@ function generateRandomBtn() {
         <div></div>
       `
 function winner(you , house) {
-    if (you == 'scissors' && house == 'paper' || you == 'paper' && house == 'rock' || you == 'rock' && house == 'scissors') {
-        score.winner = 'you'
-        score.wins ++
-       
-        youpicked.appendChild(backCircles)
-        resultStat('YOU WIN')
-    } else if (you == 'paper' && house == 'scissors' || you == 'rock' && house == 'paper' || you == 'scissors' && house == 'rock') {
-        score.winner = 'house'
-        score.wins --
-        theHousePicked.appendChild(backCircles)
-        resultStat('YOU LOSE')
-    } else if(you == house){
-        score.winner = 'tie'
-        resultStat('TIE')
-    }
+    if (userPlayerChoice == house) {
+        messageWhoWin.innerHTML = '<div id="draw-message">DRAW<div>';
+        setTimeout(() => {}, 1000);
+      } else if (
+        (you== "scissors" &&
+          (house == "spock" || house == "rock")) ||
+        (you == "spock" &&
+          (house == "paper" || house == "lizard")) ||
+        (you == "paper" &&
+          (house == "scissors" || house == "lizard")) ||
+        (you == "lizard" &&
+          (house == "scissors" || house == "rock")) ||
+        (you == "rock" &&
+          (house == "spock" || house == "paper"))
+      ) {
+        messageWhoWin.innerHTML = '<div id="you-lose-message">YOU LOSE</div>';
+        scoreTotal = scoreTotal - 1;
+        setTimeout(() => {}, 1000);
+        showScoreTotal();
+      } else {
+        messageWhoWin.innerHTML = '<div id="you-win-message">YOU WIN</div>;';
+        scoreTotal = scoreTotal + 1;
+        setTimeout(() => {}, 1000);
+        showScoreTotal();
+      }
+    };
     
-}
+
 
 let thehousepickedPlaceHolder = document.createElement('div')
 thehousepickedPlaceHolder.classList.add('button')
