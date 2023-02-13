@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="style copy.css">
-    <script src="index copy.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
 </head>
 <body>
     <div class="body">
         <header>
-          <img src="images/logo.svg" alt="">
+          <img src="images/logo-bonus.svg" alt="">
           <div class="score">
             <p>SCORE</p>
             <div id="score">0</div>
@@ -20,7 +20,7 @@
         <div class="game">
           <div class="gameContainer">
             <div class="triangle">
-              <img src="images/bg-triangle.svg" alt="">
+              <img src="images/bg-pentagon.svg" alt="">
             </div>
       
             <button class="buttons paper" id="paper" onclick="choose(this.id)">
@@ -33,6 +33,15 @@
       
             <button class="buttons rock" id="rock" onclick="choose(this.id)">
               <img src="images/icon-rock.svg" alt="" >
+            </button>
+
+
+            <button class="buttons lizard" id="lizard" onclick="choose(this.id)">
+              <img src="images/icon-lizard.svg" alt="" >
+            </button>
+
+            <button class="buttons spock" id="spock" onclick="choose(this.id)">
+              <img src="images/icon-spock.svg" alt="" >
             </button>
       
           </div>
@@ -56,8 +65,8 @@
         </div>
       </div>
 
-      <a href="classic.html">
-        <button id="rulesBtn-1">Play classic</button>
+      <a href="index.html">
+        <button id="rulesBtn-1">Play Original</button>
       </a>
       
       <button id="rulesBtn" onclick="openRules()">RULES</button>
@@ -69,7 +78,7 @@
             <h2>RULES</h2>
             <button onclick="closeRules()"><img src="images/icon-close.svg"></button>
           </nav>
-          <img src="images/image-rules.svg" alt="">
+          <img src="images/image-rules-bonus.svg" alt="">
         </div>
       </div>
 </body>

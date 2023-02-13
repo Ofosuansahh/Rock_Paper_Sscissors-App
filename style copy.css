@@ -31,10 +31,6 @@ h2,h3,p{
     --Paper-color-shadow:  #1f37ac;
     --Rock-color:  #dd405d;
     --Rock-color-shadow:  #b51a36;
-    --lizard-color: #af35e7;
-    --lizard-color-shadow: #690a95;
-    --spock-color: #25c6db;
-    --spock-color-shadow: #097a89;
 }
 
 
@@ -92,8 +88,8 @@ header{
 }
 .buttons{
     position: absolute;
-    width: 6rem;
-    height: 6rem;
+    width: 8rem;
+    height: 8rem;
     text-align: center;
     background: var(--light-color);
     border-radius: 50%;
@@ -107,45 +103,25 @@ header{
 
 .paper{
     border: 1.5rem solid var(--Paper-color);
-    /* transform: translate(-50% , -50%); */
-    top: 15%;
-    left: 80%;
+    transform: translate(-50% , -50%);
+    top: 0;
+    left: 0;
     box-shadow: 0px 10px var(--Paper-color-shadow);
 }
-
 .scissors{
     border: 1.5rem solid var(--Scissors-color);
     transform: translate(50% , -50%);
     top: 0;
-    right: 50%;
+    right: 0;
     box-shadow: 0px 10px var(--Scissors-color-shadow);
 }
 .rock{
     border: 1.5rem solid var(--Rock-color);
-    /* transform: translate(-50% , 50%); */
-    top: 75%;
-    left: 70%;
+    transform: translate(-50% , 50%);
+    bottom: 0;
+    left: 50%;
     box-shadow: 0px 10px var(--Rock-color-shadow);
 }
-
-
-.lizard{
-    border: 1.5rem solid var(--lizard-color);
-    /* transform: translate(50% , -50%); */
-    top: 15%;
-    right: 80%;
-    box-shadow: 0px 10px var(--lizard-color-shadow);
-}
-
-.spock{
-    border: 1.5rem solid var(--spock-color);
-    transform: translate(-50% , 50%);
-    top: 50%;
-    left: 10%;
-    box-shadow: 0px 10px var(--spock-color-shadow);
-}
-
-
 
 
 .result{
@@ -284,6 +260,11 @@ header{
     transition: 0.3s;
 }
 
+#rulesBtn:hover{
+    background: var(--light-color);
+    color: var(--main-color);
+}
+
 #rulesBtn-1{
     position: absolute;
     bottom: 2rem;
@@ -296,11 +277,6 @@ header{
     font-weight: 600;
     transition: 0.3s;
     text-transform: uppercase;
-}
-
-#rulesBtn:hover{
-    background: var(--light-color);
-    color: var(--main-color);
 }
 
 #rulesBtn-1:hover{
