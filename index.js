@@ -44,7 +44,7 @@ function makeButton(id) {
     return button
 }
 
-let btns = ['rock', 'paper' , 'scissors', 'lizard', 'spock']  
+let btns = ['rock', 'paper' , 'scissors']  
 function generateRandomBtn() {
   let randomNum = Math.floor(Math.random() * btns.length)
 
@@ -66,25 +66,16 @@ function generateRandomBtn() {
         <div></div>
       `
 function winner(you , house) {
-    if (you == 'scissors' && house == 'spock' 
-    || you == 'spock' && house == 'paper' 
-    || you == 'paper' && house == 'scissors' 
-    || you == 'lizard' && house == 'scissors'
-    || you == 'rock' && house == 'spock'
-    
+    if (you == 'scissors' && house == 'paper' 
+       || you == 'paper' && house == 'rock' 
+       || you == 'rock' && house == 'scissors'
     ) {
         score.winner = 'you'
         score.wins ++
        
         youpicked.appendChild(backCircles)
         resultStat('YOU WIN')
-    } else if (you == 'scissors' && house == 'rock' 
-      || you == 'spock' && house == 'lizard' 
-      || you == 'paper' && house == 'lizard' 
-      || you == 'lizard' && house == 'rock'
-      || you == 'rock' && house == 'paper'
-      
-    ){
+    } else if (you == 'paper' && house == 'scissors' || you == 'rock' && house == 'paper' || you == 'scissors' && house == 'rock') {
         score.winner = 'house'
         score.wins --
         theHousePicked.appendChild(backCircles)

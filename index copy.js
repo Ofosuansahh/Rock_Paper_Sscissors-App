@@ -44,7 +44,7 @@ function makeButton(id) {
     return button
 }
 
-let btns = ['rock', 'paper' , 'scissors']  
+let btns = ['rock', 'paper' , 'scissors', 'lizard', 'spock']  
 function generateRandomBtn() {
   let randomNum = Math.floor(Math.random() * btns.length)
 
@@ -66,32 +66,32 @@ function generateRandomBtn() {
         <div></div>
       `
 function winner(you , house) {
-    if (userPlayerChoice == house) {
-        messageWhoWin.innerHTML = '<div id="draw-message">DRAW<div>';
-        setTimeout(() => {}, 1000);
-      } else if (
-        (you== "scissors" &&
-          (house == "spock" || house == "rock")) ||
-        (you == "spock" &&
-          (house == "paper" || house == "lizard")) ||
-        (you == "paper" &&
-          (house == "scissors" || house == "lizard")) ||
-        (you == "lizard" &&
-          (house == "scissors" || house == "rock")) ||
-        (you == "rock" &&
-          (house == "spock" || house == "paper"))
-      ) {
-        messageWhoWin.innerHTML = '<div id="you-lose-message">YOU LOSE</div>';
-        scoreTotal = scoreTotal - 1;
-        setTimeout(() => {}, 1000);
-        showScoreTotal();
-      } else {
-        messageWhoWin.innerHTML = '<div id="you-win-message">YOU WIN</div>;';
-        scoreTotal = scoreTotal + 1;
-        setTimeout(() => {}, 1000);
-        showScoreTotal();
-      }
-    };
+    if (you== "scissors" && house == "spock"
+        ||you == "spock" && house == "paper" 
+        ||you == "paper" && house == "scissors" 
+        ||you == "lizard" && house == "scissors" 
+        ||you == "rock" && house == "spock"
+    ){
+        score.winner = 'you'
+        score.wins ++
+       
+        youpicked.appendChild(backCircles)
+        resultStat('YOU WIN')
+    } else if (you == 'scissors' && house == 'rock' 
+        || you == 'spock' && house == 'lizard' 
+        || you == 'paper' && house == 'lizard' 
+        || you == 'lizard' && house == 'rock'
+        || you == 'rock' && house == 'paper') {
+        score.winner = 'house'
+        score.wins --
+        theHousePicked.appendChild(backCircles)
+        resultStat('YOU LOSE')
+    } else if(you == house){
+        score.winner = 'tie'
+        resultStat('TIE')
+    }
+    
+}
     
 
 
