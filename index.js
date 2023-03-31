@@ -75,7 +75,10 @@ function winner(you , house) {
        
         youpicked.appendChild(backCircles)
         resultStat('YOU WIN')
-    } else if (you == 'paper' && house == 'scissors' || you == 'rock' && house == 'paper' || you == 'scissors' && house == 'rock') {
+    } else if (you == 'paper' && house == 'scissors' 
+        || you == 'rock' && house == 'paper' 
+        || you == 'scissors' && house == 'rock'
+    ) {
         score.winner = 'house'
         score.wins --
         theHousePicked.appendChild(backCircles)

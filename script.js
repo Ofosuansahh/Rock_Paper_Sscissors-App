@@ -66,7 +66,7 @@ function generateRandomBtn() {
         <div></div>
       `
 function winner(you , house) {
-    if (you== "scissors" && house == "spock"
+    if (you == "scissors" && house == "spock"
         ||you == "spock" && house == "paper" 
         ||you == "paper" && house == "scissors" 
         ||you == "lizard" && house == "scissors" 
@@ -78,7 +78,7 @@ function winner(you , house) {
         youpicked.appendChild(backCircles)
         resultStat('YOU WIN')
     } else if (you == 'scissors' && house == 'rock' 
-        || you == 'spock' && house == 'lizard' 
+        || you == 'spock' && house == 'scissors' 
         || you == 'paper' && house == 'lizard' 
         || you == 'lizard' && house == 'rock'
         || you == 'rock' && house == 'paper') {
