@@ -122,6 +122,12 @@ function openRules() {
     rules.style.display = 'block'
 }
 
+function openClassic(){
+    let rulesBtn_1 = document.getElementById('rulesBtn_1')
+    rulesBtn_1.style.display = 'block'
+    open("classic.html")
+}
+
 function closeRules() {
     let rules = document.getElementById('rulesContainer')
     rules.style.display = 'none'

@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
+    <title>Rock Paper Scissors Lizard Spock</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="body">
@@ -65,9 +64,9 @@
         </div>
       </div>
 
-      <a href="index.html">
-        <button id="rulesBtn-1">Play Original</button>
-      </a>
+     
+        <button id="rulesBtn_1" onclick="history.back()">Play Original</button>
+
       
       <button id="rulesBtn" onclick="openRules()">RULES</button>
       
@@ -81,5 +80,148 @@
           <img src="images/image-rules-bonus.svg" alt="">
         </div>
       </div>
+
+
+      <script>
+            const game = document.querySelector('.game')
+            const result = document.querySelector('.result')
+            const youpicked = document.querySelector('.youPicked')
+            const theHousePicked = document.querySelector('.theHousePicked')
+            const resultStats = document.getElementById('resultStat')
+            const scorerev = document.getElementById('score')
+            const resultShow = document.querySelector('.resultShow')
+
+            let score = {
+                wins: 0,
+                winner,
+                played :0,
+            }
+
+            let random = {
+                pick:'',
+            }
+            function choose(id) {
+                game.style.display = 'none'
+
+                result.style.display = 'flex'
+
+                
+                youpicked.appendChild(makeButton(id))
+                
+                // theHousePicked.removeChild(theHousePicked.lastChild)
+                setTimeout(() => {
+                    theHousePicked.appendChild(generateRandomBtn())
+                    winner(id, random.pick)
+                    scorerev.innerText = score.wins
+                    resultShow.style.visibility = 'visible'
+                }, 1000);
+
+                score.played ++
+            }
+
+
+
+            function makeButton(id) {
+                let button = document.createElement('div')
+                button.innerHTML = `<img src="images/icon-${id}.svg" >`
+                button.id = id
+                button.classList.add(id, 'buttons')
+                return button
+            }
+
+            let btns = ['rock', 'paper' , 'scissors', 'lizard', 'spock']  
+            function generateRandomBtn() {
+              let randomNum = Math.floor(Math.random() * btns.length)
+
+              
+              let btn = btns[randomNum]
+                console.log(Math.random());
+              let button2 = document.createElement('div')
+              button2.innerHTML = `<img src="images/icon-${btn}.svg" >`
+              button2.id = btn
+              button2.classList.add(btn, 'buttons', 'houseBtn')
+              random.pick = btn
+              return button2
+            }
+            let backCircles = document.createElement('div')
+                    backCircles.classList.add('before')
+                    backCircles.innerHTML = `
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  `
+            function winner(you , house) {
+                if (you == "scissors" && house == "spock"
+                    ||you == "spock" && house == "paper" 
+                    ||you == "paper" && house == "scissors" 
+                    ||you == "lizard" && house == "scissors" 
+                    ||you == "rock" && house == "spock"
+                ){
+                    score.winner = 'you'
+                    score.wins ++
+                  
+                    youpicked.appendChild(backCircles)
+                    resultStat('YOU WIN')
+                } else if (you == 'scissors' && house == 'rock' 
+                    || you == 'spock' && house == 'scissors' 
+                    || you == 'paper' && house == 'lizard' 
+                    || you == 'lizard' && house == 'rock'
+                    || you == 'rock' && house == 'paper') {
+                    score.winner = 'house'
+                    score.wins --
+                    theHousePicked.appendChild(backCircles)
+                    resultStat('YOU LOSE')
+                } else if(you == house){
+                    score.winner = 'tie'
+                    resultStat('TIE')
+                }
+                
+            }
+                
+
+
+            let thehousepickedPlaceHolder = document.createElement('div')
+            thehousepickedPlaceHolder.classList.add('button')
+            function reset() {
+                game.style.display = 'flex'
+
+                result.style.display = 'none'
+
+                score.winner = ''
+
+                let before = document.querySelector('.before')
+                resultShow.style.visibility = 'hidden'
+                if (before != '') {
+                    theHousePicked.removeChild(theHousePicked.lastChild)
+                    theHousePicked.removeChild(theHousePicked.lastChild)
+                    before.remove()
+                } else{
+                    theHousePicked.removeChild(theHousePicked.lastChild)
+                }
+                theHousePicked.appendChild(thehousepickedPlaceHolder)
+
+
+            }
+            function resultStat(text){
+                resultStats.innerText = text
+            }
+
+
+            function openRules() {
+                let rules = document.getElementById('rulesContainer')
+                rules.style.display = 'block'
+            }
+
+          //   function openOriginal(){
+          //   let rulesBtn_1 = document.getElementById('rulesBtn_1')
+          //   rulesBtn_1.style.display = 'block'
+          //   window.open("index.html", "_blank")
+          // }
+
+            function closeRules() {
+                let rules = document.getElementById('rulesContainer')
+                rules.style.display = 'none'
+            }
+       </script>
 </body>
 </html>

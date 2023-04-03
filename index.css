@@ -42,6 +42,7 @@ h2,h3,p{
     flex-direction: column;
     align-items: center;
 }
+
 header{
     width: 50%;
     height: 10rem;
@@ -265,7 +266,7 @@ header{
     color: var(--main-color);
 }
 
-#rulesBtn-1{
+#rulesBtn_1{
     position: absolute;
     bottom: 2rem;
     left: 2rem;
@@ -279,7 +280,7 @@ header{
     text-transform: uppercase;
 }
 
-#rulesBtn-1:hover{
+#rulesBtn_1:hover{
     background: var(--light-color);
     color: var(--main-color);
 }
